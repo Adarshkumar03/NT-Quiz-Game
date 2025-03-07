@@ -1,48 +1,111 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Fredoka", sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Fredoka", sans-serif;
 }
 
-#hero{
-    background-color: #f0f0f0;
-    padding: 20px;
-    margin-bottom: 20px;
-    height:100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#hero {
+  background-color: #f0f0f0;
+  padding: 20px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#hero h1{
-    font-size: 3rem;
-    font-family: "Nunito", sans-serif;
+#hero h1 {
+  font-size: 3rem;
+  font-family: "Nunito", sans-serif;
 }
 
-#form{
-    margin: 0 auto;
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #000000;
-    border-radius: 5px;
+#form {
+  margin: 0 auto;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
 }
 
-#quiz-container{
-    margin: 0 auto;
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    background-color: #f0f0f0;
+#quiz-container {
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.question{
-    margin-bottom: 10px;
+.question-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  padding: 20px;
+  background-color: #f9f9f9;
 }
 
-.answer{
-    margin-bottom: 5px;
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.answer {
+  width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background: #ddd;
+  transition: background 0.3s;
+}
+
+.answer:hover {
+  background: #ccc;
+}
+
+#next-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.correct{
+    background-color: #00FFaa;
+}
+
+.correct-border{
+    border: 2px solid #00FFaa;
+    color: #00FFaa;
+}
+
+.wrong{
+    background-color: #FF0000;
+}
+
+.hidden {
+  display: none;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
