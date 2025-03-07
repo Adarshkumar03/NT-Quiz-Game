@@ -1,111 +1,189 @@
+/* Reset & Font */
 * {
   margin: 0;
   padding: 0;
   font-family: "Fredoka", sans-serif;
+  box-sizing: border-box;
 }
 
 #hero {
-  background-color: #f0f0f0;
-  padding: 20px;
+  background-color: #f4f4f4;
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 #hero h1 {
   font-size: 3rem;
   font-family: "Nunito", sans-serif;
+  color: #1a1a40; /* Dark navy */
 }
 
+/* Subtext */
+#hero p {
+  font-size: 1.3rem;
+  color: #333; /* Dark gray */
+  margin-top: 10px;
+  max-width: 600px;
+  opacity: 0.8;
+}
+
+/* Form */
 #form {
-  margin: 0 auto;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid #000000;
-  border-radius: 5px;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff; /* White */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
+/* Select Dropdown */
+select {
+  padding: 8px;
+  width: 200px;
+  font-size: 1rem;
+  margin: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* Submit Button */
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #007bff; /* Bright blue */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue */
+}
+
+/* Quiz Container */
 #quiz-container {
-  margin: 0 auto;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: #eaeaea; /* Light gray */
 }
 
+/* Question Container */
 .question-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 70%;
-  padding: 20px;
-  background-color: #f9f9f9;
+  padding:15px 0 20px 0;
+  background-color: #fff; /* White */
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
+/* Question Header */
 .question-header {
   display: flex;
-  justify-content: space-between;
-  width: 80%;
+  justify-content: space-around;
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
-.answers {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.question-header > *{
+  border-right: 3px solid #004;
+  border-left: 3px solid #004;
+  padding: 0 5px;
 }
 
+.question-text{
+  font-family: "Nunito", sans-serif;
+}
+
+/* Answer Options - Grid Layout */
+.answers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+/* Individual Answer */
 .answer {
-  width: 300px;
-  padding: 10px;
-  font-size: 1rem;
+  width: 100%;
+  padding: 15px;
+  font-size: 1.5rem;
+  font-weight: 500;
   cursor: pointer;
   border: none;
-  background: #ddd;
-  transition: background 0.3s;
+  border-radius: 8px;
+  background: #cecece;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
 }
 
 .answer:hover {
-  background: #ccc;
+  background: #dcdcdc;
+  transform: scale(1.05);
 }
 
+/* Correct & Wrong Answers */
+.correct {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+.correct-border{
+  border: 4px solid #4caf50;
+  background-color: #fff;
+  color: #4caf50;
+}
+
+.wrong {
+  background-color: #e63946; /* Soft red */
+  color: white;
+}
+
+/* Next Button - Positioned Right */
 #next-button {
-  margin-top: 20px;
+  display:none;
+  margin: 20px auto 0 auto;
   padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+#next-button:hover {
+  background-color: #0056b3;
+}
+
+/* Fade-in & Fade-out */
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .fade-out {
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.correct{
-    background-color: #00FFaa;
-}
-
-.correct-border{
-    border: 2px solid #00FFaa;
-    color: #00FFaa;
-}
-
-.wrong{
-    background-color: #FF0000;
-}
-
-.hidden {
-  display: none;
-}
-
-.fade-in {
-  opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }

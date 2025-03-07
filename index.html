@@ -14,10 +14,16 @@
   </head>
   <body>
     <section id="hero">
-      <h1>Quiz Game!!</h1>
+      <h1>The Ultimate Quiz Challenge!🏆</h1>
+      <p>
+        Choose a category and difficulty to start your quiz. Are you ready to
+        challenge yourself?
+      </p>
+
       <form id="form">
+        <label for="category">📚 Pick a Category:</label>
         <select name="category" required id="category">
-          <option value="">Select Category</option>
+          <option value="">-- Select Category --</option>
           <option value="9">General Knowledge</option>
           <option value="10">Entertainment: Books</option>
           <option value="11">Entertainment: Film</option>
@@ -38,18 +44,26 @@
           <option value="30">Gadgets</option>
           <option value="31">Japanese Anime & Manga</option>
         </select>
+
+        <label for="difficulty">🎚️ Choose Difficulty:</label>
         <select name="difficulty" required id="difficulty">
-          <option value="">Select Difficulty</option>
+          <option value="">-- Select Difficulty --</option>
           <option value="any">Any</option>
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
+          <option value="easy">Easy (10 Questions)</option>
+          <option value="medium">Medium (15 Questions)</option>
+          <option value="hard">Hard (20 Questions)</option>
         </select>
-        <button type="submit">Start</button>
+
+        <button type="submit">Let's Play! 🚀</button>
       </form>
     </section>
 
-    <div id="quiz-container"></div>
+    <div id="quiz-container">
+      <p id="loading-text" style="text-align: center">
+        Loading your quiz... ⏳
+      </p>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
