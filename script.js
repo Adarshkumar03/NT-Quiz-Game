@@ -2,7 +2,7 @@ const difficultyMap = {
   easy: 10,
   medium: 15,
   hard: 20,
-  any: 15
+  any: 15,
 };
 
 const categoryColors = {
@@ -63,11 +63,21 @@ const fetchData = async (category, difficulty) => {
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+
+  // Optionally update the container to show loading while fetching,
+  // but if you want the same default text, you can leave it as is.
+  quizContainer.innerHTML = `
+    <p id="loading-text" style="text-align: center">
+      Loading your quiz... ⏳
+    </p>
+  `;
+
   const category = categorySelect.value;
   const difficulty = difficultySelect.value;
   decodedQuestions = await fetchData(category, difficulty);
   currentQuestionIndex = 0;
   score = 0;
+
   document
     .getElementById("quiz-container")
     .scrollIntoView({ behavior: "smooth" });
