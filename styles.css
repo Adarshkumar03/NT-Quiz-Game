@@ -1,4 +1,3 @@
-/* Reset & Font */
 * {
   margin: 0;
   padding: 0;
@@ -20,61 +19,56 @@
 #hero h1 {
   font-size: 3rem;
   font-family: "Nunito", sans-serif;
-  color: #1a1a40; /* Dark navy */
+  color: #1a1a40;
 }
 
-/* Subtext */
 #hero p {
   font-size: 1.3rem;
-  color: #333; /* Dark gray */
-  margin-top: 10px;
-  max-width: 600px;
+  color: #333;
+  margin-top: 0.625rem; /* 10px / 16 */
+  max-width: 37.5rem; /* 600px / 16 */
   opacity: 0.8;
 }
 
-/* Form */
 #form {
-  margin: 20px auto;
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 18px;
+  margin: 1.25rem auto; /* 20px / 16 */
+  padding: 0.9375rem; /* 15px / 16 */
+  border-radius: 0.5rem; /* 8px / 16 */
+  font-size: 1.125rem; /* 18px / 16 */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #ffffff; /* White */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  background: #ffffff;
+  box-shadow: 0rem 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* 0px, 4px, 10px */
 }
 
-/* Select Dropdown */
 select {
-  padding: 8px;
-  width: 200px;
+  padding: 0.5rem; /* 8px / 16 */
+  width: 12.5rem; /* 200px / 16 */
   font-size: 1rem;
-  margin: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin: 0.5rem; /* 8px / 16 */
+  border: 0.0625rem solid #ccc; /* 1px / 16 */
+  border-radius: 0.3125rem; /* 5px / 16 */
   background: #fff;
   cursor: pointer;
 }
 
-/* Submit Button */
 button {
-  padding: 10px 15px;
+  padding: 0.625rem 0.9375rem; /* 10px 15px / 16 */
   font-size: 1rem;
   cursor: pointer;
-  background-color: #007bff; /* Bright blue */
+  background-color: #0b3259;;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem; /* 5px / 16 */
   transition: background 0.3s ease-in-out;
 }
 
 button:hover {
-  background-color: #0056b3; /* Darker blue */
+  background-color: #0056b3;
 }
 
-/* Quiz Container */
 #quiz-container {
   width: 100vw;
   height: 100vh;
@@ -82,56 +76,193 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #eaeaea; /* Light gray */
+  background: #eaeaea;
 }
 
-/* Question Container */
 .question-container {
   width: 70%;
-  padding:15px 0 20px 0;
-  background-color: #fff; /* White */
-  border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.625rem; /* 10px / 16 */
+  box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 0px, 4px, 8px */
   text-align: center;
 }
 
-/* Question Header */
 .question-header {
   display: flex;
+  padding: 0.625rem; /* 10px / 16 */
   justify-content: space-around;
+  align-items: center;
   font-size: 1.2rem;
-  margin-bottom: 10px;
+  background-color: white;
 }
 
-.question-header > *{
-  border-right: 3px solid #004;
-  border-left: 3px solid #004;
-  padding: 0 5px;
+.ques-amt {
+  font-size: 1.375rem; /* 22px / 16 */
+  font-weight: 600;
 }
 
-.question-text{
+.question-body {
+  background-color: #f7fafd;
+  margin: 0;
+  padding: 1.25rem 2.5rem; /* 20px and 40px / 16 */
+}
+
+.circle-container {
+  width: 3.75rem; /* 60px / 16 */
+  height: 3.75rem; /* 60px / 16 */
+  background-color: #ddd;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.semicircle {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: right center;
+}
+
+.semicircle:nth-child(1) {
+  background-color: #088bbb;
+  z-index: 2;
+}
+
+.semicircle:nth-child(2) {
+  background-color: #088bbb;
+  z-index: 3;
+}
+
+.semicircle:nth-child(3) {
+  background-color: #ddd;
+  z-index: 4;
+  /* display: none; */
+}
+
+.outermost-circle {
+  width: 3.125rem; /* 50px / 16 */
+  height: 3.125rem; /* 50px / 16 */
+  border-radius: 50%;
+  background-color: white;
+  z-index: 5;
+  position: absolute;
+  /* display: none; */
+}
+
+#timer-text {
+  position: relative; /* Make sure it’s positioned on top */
+  z-index: 7;
+  color: #000; /* Set a contrasting color (black in this case) */
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* .timer-container:hover .semicircle:nth-child(1){
+  transform: rotate(180deg);
+  transition: 1s linear;
+}
+
+.timer-container:hover .semicircle:nth-child(2){
+  transform: rotate(360deg);
+  transition: 2s linear;
+}
+
+.timer-container:hover .semicircle:nth-child(3){
+  opacity:0;
+  transition: opacity 0s 1s;
+} */
+
+.timer {
+  width: 3.3125rem; /* 53px / 16 */
+  height: 1.875rem; /* 30px / 16 */
+  z-index: 6;
+}
+
+.time {
+  width: 3.75rem; /* 60px / 16 */
+  height: 0.9375rem; /* 15px / 16 */
+  z-index: 7;
+}
+
+#score {
+  background-color: #f7fafd;
+  padding: 0.3125rem; /* 5px / 16 */
+  border: none;
+  border-radius: 0.3125rem; /* 5px / 16 */
+}
+
+.score-text {
+  font-weight: 600;
+  margin-left: 0.3125rem; /* 5px / 16 */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 0.5s infinite;
+}
+
+@keyframes scoreFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-0.625rem) rotate(10deg); /* -10px / 16 */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-1.25rem) rotate(-10deg); /* -20px / 16 */
+  }
+}
+
+.score-animation {
+  position: absolute;
+  left: 50%;
+  transform: translateX(100%);
+  color: green;
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: scoreFloat 0.8s ease-out;
+}
+
+.question-text {
   font-family: "Nunito", sans-serif;
 }
 
-/* Answer Options - Grid Layout */
 .answers {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  gap: 0.9375rem; /* 15px / 16 */
   width: 100%;
-  max-width: 500px;
-  margin: 20px auto;
+  max-width: 31.25rem; /* 500px / 16 */
+  margin: 1.25rem auto; /* 20px / 16 */
 }
 
-/* Individual Answer */
 .answer {
   width: 100%;
-  padding: 15px;
+  padding: 0.9375rem; /* 15px / 16 */
   font-size: 1.5rem;
   font-weight: 500;
   cursor: pointer;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem; /* 8px / 16 */
   background: #cecece;
   transition: all 0.3s ease-in-out;
   text-align: center;
@@ -142,34 +273,48 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Correct & Wrong Answers */
 .correct {
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50;
   color: white;
 }
 
-.correct-border{
-  border: 4px solid #4caf50;
+.correct:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+.correct-border {
+  border: 0.25rem solid #4caf50; /* 4px / 16 */
+  background-color: #fff;
+  color: #4caf50;
+}
+
+.correct-border:hover {
+  border: 0.25rem solid #4caf50; /* 4px / 16 */
   background-color: #fff;
   color: #4caf50;
 }
 
 .wrong {
-  background-color: #e63946; /* Soft red */
+  background-color: #e63946;
   color: white;
 }
 
-/* Next Button - Positioned Right */
+.wrong:hover {
+  background-color: #e63946;
+  color: white;
+}
+
 #next-button {
-  display:none;
-  margin: 20px auto 0 auto;
-  padding: 10px 20px;
+  display: none;
+  margin: 1.25rem auto 0 auto; /* 20px auto 0 auto */
+  padding: 0.625rem 1.25rem; /* 10px 20px / 16 */
   font-size: 1rem;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: #0b3259;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem; /* 5px / 16 */
   transition: background 0.3s ease-in-out;
 }
 
@@ -177,7 +322,6 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Fade-in & Fade-out */
 .fade-in {
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
@@ -186,4 +330,46 @@ button:hover {
 .fade-out {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+}
+
+.result-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 25rem; /* 400px / 16 */
+  margin: 2rem auto;
+}
+
+.result-container h2 {
+  margin-bottom: 1rem;
+  color: #1a1a40;
+  font-size: 2rem;
+}
+
+.final-score {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.feedback {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.btn {
+  padding: 0.75rem 1.25rem;
+  background-color: #0b3259;;
+  border: none;
+  border-radius: 0.3125rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #0056b3;
 }
