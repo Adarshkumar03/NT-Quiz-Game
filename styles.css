@@ -1,3 +1,19 @@
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -18,55 +34,90 @@
 
 #hero h1 {
   font-size: 3rem;
-  font-family: "Nunito", sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #1a1a40;
 }
 
 #hero p {
   font-size: 1.3rem;
   color: #333;
-  margin-top: 0.625rem; /* 10px / 16 */
-  max-width: 37.5rem; /* 600px / 16 */
+  margin-top: 0.625rem;
+  max-width: 30rem;
   opacity: 0.8;
 }
 
+
 #form {
-  margin: 1.25rem auto; /* 20px / 16 */
-  padding: 0.9375rem; /* 15px / 16 */
-  border-radius: 0.5rem; /* 8px / 16 */
-  font-size: 1.125rem; /* 18px / 16 */
+  margin: 1.25rem auto;
+  padding: 0.9375rem;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #ffffff;
-  box-shadow: 0rem 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* 0px, 4px, 10px */
+  box-shadow: 0rem 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  #form {
+    width: 90%;        
+    padding: 1.5rem;     
+    font-size: 1.25rem; 
+  }
 }
 
 select {
-  padding: 0.5rem; /* 8px / 16 */
-  width: 12.5rem; /* 200px / 16 */
+  padding: 0.5rem;
+  width: 12.5rem;
   font-size: 1rem;
-  margin: 0.5rem; /* 8px / 16 */
-  border: 0.0625rem solid #ccc; /* 1px / 16 */
-  border-radius: 0.3125rem; /* 5px / 16 */
+  margin: 0.5rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.3125rem;
   background: #fff;
   cursor: pointer;
 }
 
+@media (max-width: 600px) {
+  select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.125rem;
+    margin: 0.5rem 0;
+  }
+  select:last-of-type{
+    margin-bottom:1rem;
+  }
+
+  label{
+    font-size: 1.75rem;
+    font-weight: 500;
+  }
+
+  #form button{
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
 button {
-  padding: 0.625rem 0.9375rem; /* 10px 15px / 16 */
+  padding: 0.625rem 0.9375rem;
   font-size: 1rem;
   cursor: pointer;
-  background-color: #0b3259;;
+  background-color: #0b3259;
   color: #fff;
   border: none;
-  border-radius: 0.3125rem; /* 5px / 16 */
+  border-radius: 0.3125rem;
   transition: background 0.3s ease-in-out;
 }
 
 button:hover {
   background-color: #0056b3;
+}
+
+#loading-text {
+  font-size: 2rem;
 }
 
 #quiz-container {
@@ -81,14 +132,27 @@ button:hover {
 
 .question-container {
   width: 70%;
-  border-radius: 0.625rem; /* 10px / 16 */
-  box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 0px, 4px, 8px */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+}
+
+@media (max-width: 600px) {
+  .question-container {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+  }
 }
 
 .question-header {
   display: flex;
-  padding: 0.625rem; /* 10px / 16 */
+  padding: 0.625rem;
   justify-content: space-around;
   align-items: center;
   font-size: 1.2rem;
@@ -96,19 +160,29 @@ button:hover {
 }
 
 .ques-amt {
-  font-size: 1.375rem; /* 22px / 16 */
+  font-size: 1.375rem;
   font-weight: 600;
 }
 
 .question-body {
   background-color: #f7fafd;
   margin: 0;
-  padding: 1.25rem 2.5rem; /* 20px and 40px / 16 */
+  padding: 1.25rem 2.5rem;
+}
+
+@media (max-width: 600px) {
+  .question-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 }
 
 .circle-container {
-  width: 3.75rem; /* 60px / 16 */
-  height: 3.75rem; /* 60px / 16 */
+  width: 3.75rem;
+  height: 3.75rem;
   background-color: #ddd;
   border-radius: 50%;
   position: relative;
@@ -141,64 +215,47 @@ button:hover {
 .semicircle:nth-child(3) {
   background-color: #ddd;
   z-index: 4;
-  /* display: none; */
 }
 
 .outermost-circle {
-  width: 3.125rem; /* 50px / 16 */
-  height: 3.125rem; /* 50px / 16 */
+  width: 3.125rem;
+  height: 3.125rem;
   border-radius: 50%;
   background-color: white;
   z-index: 5;
   position: absolute;
-  /* display: none; */
 }
 
 #timer-text {
-  position: relative; /* Make sure it’s positioned on top */
+  position: relative;
   z-index: 7;
-  color: #000; /* Set a contrasting color (black in this case) */
+  color: #000;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-/* .timer-container:hover .semicircle:nth-child(1){
-  transform: rotate(180deg);
-  transition: 1s linear;
-}
-
-.timer-container:hover .semicircle:nth-child(2){
-  transform: rotate(360deg);
-  transition: 2s linear;
-}
-
-.timer-container:hover .semicircle:nth-child(3){
-  opacity:0;
-  transition: opacity 0s 1s;
-} */
-
 .timer {
-  width: 3.3125rem; /* 53px / 16 */
-  height: 1.875rem; /* 30px / 16 */
+  width: 3.3125rem;
+  height: 1.875rem;
   z-index: 6;
 }
 
 .time {
-  width: 3.75rem; /* 60px / 16 */
-  height: 0.9375rem; /* 15px / 16 */
+  width: 3.75rem;
+  height: 0.9375rem;
   z-index: 7;
 }
 
 #score {
   background-color: #f7fafd;
-  padding: 0.3125rem; /* 5px / 16 */
+  padding: 0.3125rem;
   border: none;
-  border-radius: 0.3125rem; /* 5px / 16 */
+  border-radius: 0.3125rem;
 }
 
 .score-text {
   font-weight: 600;
-  margin-left: 0.3125rem; /* 5px / 16 */
+  margin-left: 0.3125rem;
 }
 
 @keyframes pulse {
@@ -224,11 +281,11 @@ button:hover {
   }
   50% {
     opacity: 1;
-    transform: translateY(-0.625rem) rotate(10deg); /* -10px / 16 */
+    transform: translateY(-0.625rem) rotate(10deg);
   }
   100% {
     opacity: 0;
-    transform: translateY(-1.25rem) rotate(-10deg); /* -20px / 16 */
+    transform: translateY(-1.25rem) rotate(-10deg);
   }
 }
 
@@ -243,29 +300,42 @@ button:hover {
 }
 
 .question-text {
-  font-family: "Nunito", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .answers {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.9375rem; /* 15px / 16 */
+  gap: 15px;
   width: 100%;
-  max-width: 31.25rem; /* 500px / 16 */
-  margin: 1.25rem auto; /* 20px / 16 */
+  max-width: 500px;
+  margin: 20px auto;
 }
 
 .answer {
   width: 100%;
-  padding: 0.9375rem; /* 15px / 16 */
+  padding: 15px;
   font-size: 1.5rem;
   font-weight: 500;
   cursor: pointer;
   border: none;
-  border-radius: 0.5rem; /* 8px / 16 */
+  border-radius: 8px;
   background: #cecece;
   transition: all 0.3s ease-in-out;
   text-align: center;
+  word-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+  .answers {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .answer {
+    padding: 10px;
+    font-size: 1.3rem;
+  }
 }
 
 .answer:hover {
@@ -284,13 +354,13 @@ button:hover {
 }
 
 .correct-border {
-  border: 0.25rem solid #4caf50; /* 4px / 16 */
+  border: 0.25rem solid #4caf50;
   background-color: #fff;
   color: #4caf50;
 }
 
 .correct-border:hover {
-  border: 0.25rem solid #4caf50; /* 4px / 16 */
+  border: 0.25rem solid #4caf50;
   background-color: #fff;
   color: #4caf50;
 }
@@ -307,14 +377,15 @@ button:hover {
 
 #next-button {
   display: none;
-  margin: 1.25rem auto 0 auto; /* 20px auto 0 auto */
-  padding: 0.625rem 1.25rem; /* 10px 20px / 16 */
+  margin: 1.25rem auto 0 auto;
+  padding: 0.625rem 1.25rem;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   background-color: #0b3259;
   color: white;
   border: none;
-  border-radius: 0.3125rem; /* 5px / 16 */
+  border-radius: 0.3125rem;
   transition: background 0.3s ease-in-out;
 }
 
@@ -336,10 +407,32 @@ button:hover {
   background-color: #fff;
   padding: 2rem;
   border-radius: 0.5rem;
-  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.3);
   text-align: center;
-  max-width: 25rem; /* 400px / 16 */
   margin: 2rem auto;
+}
+
+@media (max-width: 600px) {
+  .result-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .result-container h2 {
+    font-size: 2.5rem;
+  }
+
+  .final-score {
+    font-size: 1.5rem;
+  }
 }
 
 .result-container h2 {
@@ -361,7 +454,7 @@ button:hover {
 
 .btn {
   padding: 0.75rem 1.25rem;
-  background-color: #0b3259;;
+  background-color: #0b3259;
   border: none;
   border-radius: 0.3125rem;
   color: #fff;

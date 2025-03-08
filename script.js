@@ -30,6 +30,7 @@ const form = document.getElementById("form");
 const categorySelect = document.getElementById("category");
 const difficultySelect = document.getElementById("difficulty");
 const quizContainer = document.getElementById("quiz-container");
+const audioElement = document.getElementById("ticking-sound");
 
 let decodedQuestions = [];
 let currentQuestionIndex = 0;
@@ -134,6 +135,7 @@ const showQuestion = () => {
 
 const handleAnswer = (button, correctAnswer) => {
   clearInterval(timer);
+  stopTickingSound();
   const allButtons = document.querySelectorAll(".answer");
   allButtons.forEach((btn) => (btn.disabled = true));
   if (button.textContent === correctAnswer) {
@@ -152,12 +154,15 @@ const handleAnswer = (button, correctAnswer) => {
 };
 
 const startTimer = () => {
+  playTickingSound();
   let totalTime = 15;
   let timeLeft = 15;
-  document.getElementById("timer-text").innerText = timeLeft;
-  timer = setInterval(() => {
+  const timerText = document.getElementById("timer-text");
+
+  const tick = () => {
     let angle = ((totalTime - timeLeft) / totalTime) * 360;
-    document.getElementById("timer-text").innerText = timeLeft;
+    timerText.innerText = timeLeft;
+
     if (angle > 180) {
       semicircles[2].style.display = "none";
       semicircles[0].style.transform = "rotate(180deg)";
@@ -168,19 +173,37 @@ const startTimer = () => {
       semicircles[1].style.transform = `rotate(${angle}deg)`;
     }
 
-    if(timeLeft <= 5){
+    if (timeLeft <= 5) {
       semicircles[0].style.backgroundColor = "red";
       semicircles[1].style.backgroundColor = "red";
     }
+
     timeLeft--;
+
     if (timeLeft < 0) {
       semicircles[0].style.display = "none";
       semicircles[1].style.display = "none";
       semicircles[2].style.display = "none";
       clearInterval(timer);
+      stopTickingSound();
       showCorrectAnswer();
     }
-  }, 1000);
+  };
+
+  tick();
+  timer = setInterval(tick, 1000);
+};
+
+const playTickingSound = () => {
+  audioElement.currentTime = 0;
+  audioElement.play();
+};
+
+const stopTickingSound = () => {
+  if (!audioElement.paused) {
+    audioElement.pause();
+    audioElement.currentTime = 0;
+  }
 };
 
 const showCorrectAnswer = () => {
