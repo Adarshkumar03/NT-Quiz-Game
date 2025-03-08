@@ -2,6 +2,7 @@ const difficultyMap = {
   easy: 10,
   medium: 15,
   hard: 20,
+  any: 15
 };
 
 const categoryColors = {
